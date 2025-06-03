@@ -1,4 +1,4 @@
-import { Avatar, AvatarAlt, MagnifyingGlass } from "oddball-icons";
+import { Avatar, AvatarAlt, MagnifyingGlass } from "react-oddball-icons";
 
 function App() {
   return (

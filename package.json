@@ -11,9 +11,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "oddball-icons": "^1.0.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-oddball-icons": "^1.0.0"
   },
   "types": "dist/index.d.ts",
   "devDependencies": {
