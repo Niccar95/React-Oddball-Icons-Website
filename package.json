@@ -2,6 +2,7 @@
   "name": "not-weird-icons",
   "private": true,
   "version": "0.0.0",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,9 +11,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "oddball-icons": "^1.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
+  "types": "dist/index.d.ts",
   "devDependencies": {
     "@eslint/js": "^9.25.0",
     "@types/react": "^19.1.2",
