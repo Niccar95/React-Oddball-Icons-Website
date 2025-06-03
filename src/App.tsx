@@ -1,12 +1,14 @@
-import { Avatar, AvatarAlt, MagnifyingGlass } from "react-oddball-icons";
+import { RouterProvider } from "react-router-dom";
+
+import IconList from "./components/IconList";
+import { router } from "./Router";
 
 function App() {
   return (
     <>
       <h1>React oddball icons</h1>
-      <Avatar width={70} height={70} />
-      <AvatarAlt width={70} height={70} />
-      <MagnifyingGlass width={70} height={70} />
+      <IconList />
+      <RouterProvider router={router} />
     </>
   );
 }
