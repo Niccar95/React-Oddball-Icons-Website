@@ -1,0 +1,69 @@
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+const Documentation = () => {
+  const icons: string[] = [
+    "Arrow",
+    "Avatar",
+    "AvatarAlt",
+    "Bell",
+    "BellAlt",
+    "Bookmark",
+    "BookmarkAlt",
+    "Calculator",
+    "Calender",
+    "Clock",
+    "ClockAlt",
+    "Document",
+    "Envelope",
+    "Heart",
+    "Lock",
+    "LockAlt",
+    "MagnifyingGlass",
+    "MagnifyingGlassAlt",
+    "Presentation",
+    "SpeechBubble",
+    "SpeechBubbleAlt",
+    "StapleDiagram",
+    "StapleDiagramAlt",
+    "Suitcase",
+    "SuitcaseAlt",
+  ];
+
+  return (
+    <div>
+      <h1>Installation</h1>
+
+      <SyntaxHighlighter
+        language="bash"
+        style={tomorrow}
+        className="rounded-lg p-4"
+      >
+        {`npm install react-oddball-icons`}
+      </SyntaxHighlighter>
+
+      <h2>Usage</h2>
+      <SyntaxHighlighter language="jsx" style={oneDark}>
+        {`import { Avatar } from "react-oddball-icons";
+
+const HelloWorld = () => (
+  <>
+    <Avatar />
+  </>
+);
+
+export default HelloWorld;`}
+      </SyntaxHighlighter>
+
+      <h2>Component list</h2>
+      <ul>
+        {icons.map((icon) => {
+          return <li key={icon}>{icon}</li>;
+        })}
+      </ul>
+    </div>
+  );
+};
+
+export default Documentation;
