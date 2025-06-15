@@ -12,7 +12,6 @@
   font-family: 'Urbanist', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  font-size: 1em;
 }
 
 a {
@@ -24,6 +23,11 @@ a:hover {
   color: #2f3031;
 }
 
+.logo {
+  font-family: "Bungee Inline", sans-serif;
+  letter-spacing: 1px;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -31,13 +35,19 @@ body {
 }
 
 h1 {
-  font-size: 32px;
-  font-weight: 600;
+  font-size: 42px;
+  font-weight: 700;
   line-height: 1.1;
 }
 
 h2 {
   font-size: 25px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+h3 {
+  font-size: 18px;
   font-weight: 600;
   line-height: 1.1;
 }

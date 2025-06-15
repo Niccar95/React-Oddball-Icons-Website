@@ -32,7 +32,7 @@ const Documentation = () => {
   ];
 
   return (
-    <div>
+    <div className="flex flex-col gap-4 md:w-[500px]">
       <h1>Installation</h1>
 
       <SyntaxHighlighter
@@ -57,9 +57,13 @@ export default HelloWorld;`}
       </SyntaxHighlighter>
 
       <h2>Component list</h2>
-      <ul>
+      <ul className=" grid grid-cols-2">
         {icons.map((icon) => {
-          return <li key={icon}>{icon}</li>;
+          return (
+            <li className="mb-2" key={icon}>
+              {icon}
+            </li>
+          );
         })}
       </ul>
     </div>
