@@ -18,7 +18,7 @@ const Layout = () => {
           </ul>
         </nav>
       </header>
-      <main className="flex flex-1 flex-col gap-8 justify-center items-center pt-12 pb-12">
+      <main>
         <Outlet />
       </main>
       <footer className="flex flex-col md:flex-row justify-between items-center md:items-end p-6 min-h-[200px] border-t border-gray-200">
