@@ -60,10 +60,17 @@ const iconComponents = [
 const IconList = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isIndex, setIsIndex] = useState<number>(0);
+  const [copied, setCopied] = useState<string | null>(null);
 
   const openModal = (index: number) => {
     setIsOpen(!isOpen);
     setIsIndex(index);
+  };
+
+  const handleCopy = (text: string, id: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(id);
+    setTimeout(() => setCopied(null), 2000);
   };
 
   return (
@@ -91,33 +98,42 @@ const IconList = () => {
 
               <button
                 onClick={() =>
-                  navigator.clipboard.writeText(
-                    `import { ${iconComponents[isIndex].name} } from "react-oddball-icons";`
+                  handleCopy(
+                    `import { ${iconComponents[isIndex].name} } from "react-oddball-icons";`,
+                    "import"
                   )
                 }
                 className="clipboard-button"
               >
                 <i className="bi bi-clipboard"></i>
               </button>
+              {copied === "import" && (
+                <span className="absolute bottom-1 right-1 text-xs text-green-600 font-medium">
+                  Copied!
+                </span>
+              )}
             </div>
 
-            {/* second highlight */}
+            {/* Second highlight, commented here so I don't get confused */}
 
             <div className="relative">
               <SyntaxHighlighter language="jsx" style={oneDark}>
                 {`<${iconComponents[isIndex].name} />`}
               </SyntaxHighlighter>
-
               <button
                 onClick={() =>
-                  navigator.clipboard.writeText(
-                    `<${iconComponents[isIndex].name} />`
-                  )
+                  handleCopy(`<${iconComponents[isIndex].name} />`, "jsx")
                 }
                 className="clipboard-button"
               >
                 <i className="bi bi-clipboard"></i>
               </button>
+
+              {copied === "jsx" && (
+                <span className="absolute bottom-1 right-1 text-xs text-green-600 font-medium">
+                  Copied!
+                </span>
+              )}
             </div>
 
             <button
