@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+
+.clipboard-button {
+    all: unset;
+    position: absolute;
+    cursor: pointer;
+    color: #f3f4f6; 
+    top: 50%;        
+    right: 1rem;    
+    transform: translateY(-50%); 
+}
+
+.clipboard-button:hover {
+    all: unset;
+    color: #d1d5db; 
+}

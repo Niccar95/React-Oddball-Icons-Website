@@ -26,7 +26,8 @@ import {
   Suitcase,
   SuitcaseAlt,
 } from "react-oddball-icons";
-import SyntaxHighlighter from "react-syntax-highlighter";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const iconComponents = [
@@ -82,17 +83,49 @@ const IconList = () => {
       })}
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-          <div className="bg-white rounded-2xl shadow-lg p-6 max-w-lg w-full relative">
+          <div className="bg-white rounded-2xl shadow-lg p-6 max-w-lg w-full relative ">
+            <div className="relative">
+              <SyntaxHighlighter language="jsx" style={oneDark}>
+                {`import { ${iconComponents[isIndex].name} } from "react-oddball-icons";`}
+              </SyntaxHighlighter>
+
+              <button
+                onClick={() =>
+                  navigator.clipboard.writeText(
+                    `import { ${iconComponents[isIndex].name} } from "react-oddball-icons";`
+                  )
+                }
+                className="clipboard-button"
+              >
+                <i className="bi bi-clipboard"></i>
+              </button>
+            </div>
+
+            {/* second highlight */}
+
+            <div className="relative">
+              <SyntaxHighlighter language="jsx" style={oneDark}>
+                {`<${iconComponents[isIndex].name} />`}
+              </SyntaxHighlighter>
+
+              <button
+                onClick={() =>
+                  navigator.clipboard.writeText(
+                    `<${iconComponents[isIndex].name} />`
+                  )
+                }
+                className="clipboard-button"
+              >
+                <i className="bi bi-clipboard"></i>
+              </button>
+            </div>
+
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 font-bold text-xl"
+              className="hover:text-gray-800 font-bold text-xl flex justify-self-end"
             >
               Close
             </button>
-
-            <SyntaxHighlighter language="jsx" style={oneDark}>
-              {`<${iconComponents[isIndex].name} />`}
-            </SyntaxHighlighter>
           </div>
         </div>
       )}
