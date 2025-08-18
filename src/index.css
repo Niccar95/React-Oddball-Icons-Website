@@ -22,10 +22,6 @@ a:hover {
   color: #2f3031;
 }
 
-.logo {
-  font-family: "Bungee Inline", sans-serif;
-  letter-spacing: 1px;
-}
 
 body {
   display: flex;
@@ -65,10 +61,10 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #ffc229;
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto #ffc229;
 }
 

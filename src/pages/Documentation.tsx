@@ -32,7 +32,7 @@ const Documentation = () => {
   ];
 
   return (
-    <section className="flex flex-col gap-8 flex-1 justify-center items-center pt-12 pb-12 pl-4 pr-4">
+    <section className="flex flex-1 flex-col gap-8 justify-center items-center pt-12 pb-12 pl-4 pr-4">
       <div className="w-full md:w-[600px] flex flex-col gap-6">
         <h1>Installation</h1>
 

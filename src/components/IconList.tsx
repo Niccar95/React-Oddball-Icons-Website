@@ -105,10 +105,14 @@ const IconList = () => {
                 }
                 className="clipboard-button"
               >
-                <i className="bi bi-clipboard"></i>
+                {copied === "import" ? (
+                  <i className="bi bi-clipboard-check"></i>
+                ) : (
+                  <i className="bi bi-clipboard"></i>
+                )}
               </button>
               {copied === "import" && (
-                <span className="absolute bottom-1 right-1 text-xs text-green-600 font-medium">
+                <span className="absolute bottom-1 right-2 text-[10px] text-green-600 font-medium">
                   Copied!
                 </span>
               )}
@@ -126,11 +130,15 @@ const IconList = () => {
                 }
                 className="clipboard-button"
               >
-                <i className="bi bi-clipboard"></i>
+                {copied === "jsx" ? (
+                  <i className="bi bi-clipboard-check"></i>
+                ) : (
+                  <i className="bi bi-clipboard"></i>
+                )}
               </button>
 
               {copied === "jsx" && (
-                <span className="absolute bottom-1 right-1 text-xs text-green-600 font-medium">
+                <span className="absolute bottom-1 right-2 text-[10px] text-green-600 font-medium">
                   Copied!
                 </span>
               )}
