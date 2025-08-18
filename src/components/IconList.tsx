@@ -1,6 +1,9 @@
 import { useState } from "react";
 import {
-  Arrow,
+  ArrowDown,
+  ArrowLeft,
+  ArrowRight,
+  ArrowUp,
   Avatar,
   AvatarAlt,
   Calculator,
@@ -13,7 +16,10 @@ import {
   ClockAlt,
   Document,
   Envelope,
+  Hamburger,
+  HamburgerAlt,
   Heart,
+  HeartAlt,
   Lock,
   LockAlt,
   MagnifyingGlass,
@@ -31,7 +37,10 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const iconComponents = [
-  { component: Arrow, name: "Arrow" },
+  { component: ArrowDown, name: "ArrowDown" },
+  { component: ArrowLeft, name: "ArrowLeft" },
+  { component: ArrowRight, name: "ArrowRight" },
+  { component: ArrowUp, name: "ArrowUp" },
   { component: Avatar, name: "Avatar" },
   { component: AvatarAlt, name: "AvatarAlt" },
   { component: Calculator, name: "Calculator" },
@@ -44,7 +53,10 @@ const iconComponents = [
   { component: ClockAlt, name: "ClockAlt" },
   { component: Document, name: "Document" },
   { component: Envelope, name: "Envelope" },
+  { component: Hamburger, name: "Hamburger" },
+  { component: HamburgerAlt, name: "HamburgerAlt" },
   { component: Heart, name: "Heart" },
+  { component: HeartAlt, name: "HeartAlt" },
   { component: Lock, name: "Lock" },
   { component: LockAlt, name: "LockAlt" },
   { component: MagnifyingGlass, name: "MagnifyingGlass" },
