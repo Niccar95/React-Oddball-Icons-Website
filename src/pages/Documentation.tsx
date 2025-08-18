@@ -4,7 +4,10 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const Documentation = () => {
   const icons: string[] = [
-    "Arrow",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowUp",
     "Avatar",
     "AvatarAlt",
     "Bell",
@@ -17,7 +20,10 @@ const Documentation = () => {
     "ClockAlt",
     "Document",
     "Envelope",
+    "Hamburger",
+    "HamburgerAlt",
     "Heart",
+    "HeartAlt",
     "Lock",
     "LockAlt",
     "MagnifyingGlass",
