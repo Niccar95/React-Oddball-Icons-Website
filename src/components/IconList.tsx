@@ -44,6 +44,7 @@ import {
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { useClickOutside } from "../hooks/useClickOutside";
 
 const iconComponents = [
   { component: ArrowDown, name: "ArrowDown" },
@@ -103,6 +104,10 @@ const IconList = () => {
     setTimeout(() => setCopied(null), 2000);
   };
 
+  const modalRef = useClickOutside({
+    onClickOutside: () => setIsOpen(false),
+  });
+
   return (
     <div className="h-fit grid grid-cols-4 md:grid-cols-8 gap-3 auto-rows">
       {iconComponents.map((item, index) => {
@@ -120,7 +125,10 @@ const IconList = () => {
       })}
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-          <div className="bg-white rounded-2xl shadow-lg p-6 max-w-lg w-full relative ">
+          <div
+            ref={modalRef}
+            className="bg-white rounded-2xl shadow-lg p-6 max-w-lg w-full relative "
+          >
             <div className="relative">
               <SyntaxHighlighter language="jsx" style={oneDark}>
                 {`import { ${iconComponents[isIndex].name} } from "react-oddball-icons";`}
