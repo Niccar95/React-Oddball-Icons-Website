@@ -15,11 +15,15 @@ const Documentation = () => {
     "Bookmark",
     "BookmarkAlt",
     "Calculator",
+    "CalculatorAlt",
     "Calender",
+    "CalenderAlt",
     "Clock",
     "ClockAlt",
     "Document",
+    "DocumentAlt",
     "Envelope",
+    "EnvelopeAlt",
     "Hamburger",
     "HamburgerAlt",
     "Heart",
@@ -28,13 +32,18 @@ const Documentation = () => {
     "LockAlt",
     "MagnifyingGlass",
     "MagnifyingGlassAlt",
+    "Pin",
+    "PinAlt",
     "Presentation",
+    "PresentationAlt",
     "SpeechBubble",
     "SpeechBubbleAlt",
     "StapleDiagram",
     "StapleDiagramAlt",
     "Suitcase",
     "SuitcaseAlt",
+    "TrashCan",
+    "TrashCanAlt",
   ];
 
   return (
@@ -57,6 +66,28 @@ const Documentation = () => {
 const HelloWorld = () => (
   <>
     <Avatar />
+  </>
+);
+
+export default HelloWorld;`}
+        </SyntaxHighlighter>
+
+        <h2>Styling</h2>
+
+        <SyntaxHighlighter language="jsx" style={oneDark}>
+          {`import { Avatar } from "react-oddball-icons";
+
+const HelloWorld = () => (
+  <>
+    <Avatar
+      width={60}
+      height={60}
+      style={{
+        padding: "10px",
+        borderRadius: "8px",
+        backgroundColor: "#f3f4f6",
+      }}
+    />
   </>
 );
 
