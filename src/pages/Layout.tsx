@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { useClickOutside } from "../hooks/useClickOutside";
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { pathname } = useLocation();
 
-  const location = useLocation();
-
-  const { pathname } = location;
+  const dropdownRef = useClickOutside({
+    onClickOutside: () => setIsOpen(false),
+  });
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 flex justify-between items-center h-[60px] px-4 md:px-8 border-b border-gray-200 bg-white z-50">
+      <header className="fixed top-0 left-0 right-0 flex flex-row-reverse md:flex-row justify-between items-center h-[60px] px-4 md:px-8 border-b border-gray-200 bg-white z-50">
         <h3 className="logo text-[14px] md:text-[18px] font-semibold">
           / REACT ODDBALL ICONS /
         </h3>
@@ -51,57 +53,59 @@ const Layout = () => {
           </ul>
         </nav>
 
-        {/* Hamburger menu (mobile only) */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2 rounded hover:bg-gray-100"
-        >
-          <span className="w-6 h-0.5 bg-white"></span>
-          <span className="w-6 h-0.5 bg-white"></span>
-          <span className="w-6 h-0.5 bg-white"></span>
-        </button>
+        {/* Mobile Hamburger and Dropdown */}
+        <div ref={dropdownRef} className="md:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex flex-col gap-1.5 p-2 rounded hover:bg-gray-100"
+          >
+            <span className="w-6 h-0.5 bg-white"></span>
+            <span className="w-6 h-0.5 bg-white"></span>
+            <span className="w-6 h-0.5 bg-white"></span>
+          </button>
+
+          {isOpen && (
+            <nav className="absolute top-[60px] left-0 right-0 bg-white border-b border-gray-200 z-40">
+              <ul className="flex flex-col gap-4 p-4">
+                <li>
+                  <NavLink
+                    to="/"
+                    className={`hover:text-gray-700 ${
+                      pathname === "/" ? "pb-1 border-b-2 border-solid" : ""
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/docs"
+                    className={`hover:text-gray-700 ${
+                      pathname === "/docs" ? "pb-1 border-b-2 border-solid" : ""
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Docs
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/news"
+                    className={`hover:text-gray-700 ${
+                      pathname === "/news" ? "pb-1 border-b-2 border-solid" : ""
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    News
+                  </NavLink>
+                </li>
+              </ul>
+            </nav>
+          )}
+        </div>
       </header>
 
-      {/* Mobile Dropdown Menu */}
-      {isOpen && (
-        <nav className="md:hidden fixed top-[60px] left-0 right-0 bg-white border-b border-gray-200 z-40">
-          <ul className="flex flex-col gap-4 p-4">
-            <li>
-              <NavLink
-                to="/"
-                className={`hover:text-gray-700 ${
-                  pathname === "/" ? "pb-1 border-b-2 border-solid" : ""
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/docs"
-                className={`hover:text-gray-700 ${
-                  pathname === "/docs" ? "pb-1 border-b-2 border-solid" : ""
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                Docs
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/news"
-                className={`hover:text-gray-700 ${
-                  pathname === "/news" ? "pb-1 border-b-2 border-solid" : ""
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                News
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
-      )}
       <main className="pt-[60px] min-h-screen">
         <Outlet />
       </main>

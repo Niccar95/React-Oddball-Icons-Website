@@ -7,7 +7,7 @@ interface IClickOutside {
   onClickOutside: () => void;
 }
 
-export const useClickOutside = <T extends HTMLElement>({
+export const useClickOutside = <T extends HTMLDivElement>({
   onClickOutside,
 }: IClickOutside) => {
   const ref = useRef<T>(null);
