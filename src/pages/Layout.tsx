@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useClickOutside } from "../hooks/useClickOutside";
+import npmIcon from "../assets/icons8-npm.svg";
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -115,7 +116,7 @@ const Layout = () => {
           <h3 className="text-sm font-medium text-gray-700">
             Also available on
           </h3>
-          <ul className="flex gap-4 text-2xl text-gray-600">
+          <ul className="flex items-center gap-4 text-2xl text-gray-600">
             <li>
               <a
                 href="https://github.com/Niccar95/React-Oddball-Icons-npm-package"
@@ -123,7 +124,7 @@ const Layout = () => {
                 rel="noopener noreferrer"
                 className="hover:text-gray-900 transition-colors"
               >
-                <i className="ci ci-github"></i>
+                <i className="bi bi-github"></i>
               </a>
             </li>
             <li>
@@ -133,7 +134,7 @@ const Layout = () => {
                 rel="noopener noreferrer"
                 className="hover:text-gray-900 transition-colors"
               >
-                <i className="ci ci-npm"></i>
+                <img src={npmIcon} alt="npm"></img>
               </a>
             </li>
           </ul>
