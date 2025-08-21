@@ -7,7 +7,12 @@ const News = () => {
         {newsData.map((item) => (
           <li key={item.id} className="border-b border-gray-200 pb-4">
             <p className="text-gray-500 text-sm">{item.date}</p>
-            <h2 className="font-semibold">{item.title}</h2>
+            <h2 className="font-semibold">
+              {item.title}{" "}
+              {item.version && (
+                <span className="text-gray-500">({item.version})</span>
+              )}
+            </h2>
             <p>{item.description}</p>
           </li>
         ))}
