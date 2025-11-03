@@ -5,5 +5,12 @@
     "date": "2025-08-19",
     "title": "Woohooo! Stable Release!",
     "description": "First fully stable release after experimental versions. Website launched and icons library working like expected."
+  },
+  {
+    "id": 2,
+    "version": "1.0.18",
+    "date": "2025-11-03",
+    "title": "Corrected misspelled component",
+    "description": "Fixed typo in Calendar icon component names (previously 'Calender' and 'CalenderAlt', now 'Calendar' and 'CalendarAlt'). Updated import paths to use correct spelling."
   }
 ]
