@@ -1,4 +1,7 @@
 import newsData from "../data/news.json";
+import * as Icons from "react-oddball-icons";
+
+const iconMap = Icons as Record<string, React.ComponentType>;
 
 const News = () => {
   return (
@@ -14,6 +17,21 @@ const News = () => {
               )}
             </h2>
             <p>{item.description}</p>
+            {item.icons && (
+              <div className="flex gap-2 mt-4 flex-wrap">
+                {item.icons.map((iconName: string) => {
+                  const IconComponent = iconMap[iconName];
+                  return IconComponent ? (
+                    <div
+                      key={iconName}
+                      className="rounded-md p-1 border border-neutral-200 bg-gradient-to-br from-white to-neutral-50"
+                    >
+                      <IconComponent />
+                    </div>
+                  ) : null;
+                })}
+              </div>
+            )}
           </li>
         ))}
       </ul>
